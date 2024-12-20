@@ -5,15 +5,15 @@ dotenv.config();
  const transporter = nodemailer.createTransport({
     service: 'gmail', 
     auth: {
-        user: process.env.from, // Your email
-        pass: process.env.password, // Your email password or app-specific password
+        user: process.env.FROM, // Your email
+        pass: process.env.PASSWORD, // Your email password or app-specific password
     }
 });
 
 // Function to send an email
 export const sendMail = async (to, subject, text) => {
     const mailOptions = {
-        from: process.env.from.env,  
+        from: process.env.FROM,  
         to,                            
         subject,                       
         text                           

@@ -20,7 +20,7 @@ router.post('/contact', async (req, res) => {
         const { name, email, message } = req.body;
         const subject = `Contact form submission from ${name}`;
         const text = `You have a new message from ${name} (${email}): \n\n${message}`;
-        const to = process.env.to;
+        const to = process.env.TO;
 
         const mailResponse = await sendMail(to, subject, text);
 
