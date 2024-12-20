@@ -7,7 +7,11 @@ const router = express.Router();
 
 router.get('/contact', (req, res) => {
     console.log("get");
-    res.send('Get all contacts');
+    // res.send('Get all contacts');
+    res.json({
+        status:true,
+        message:'Request Successfully sent'
+    })
 });
 
 
