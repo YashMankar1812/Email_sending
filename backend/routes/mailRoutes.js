@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/contact', (req, res) => {
     console.log("get");
     // res.send('Get all contacts');
-    res.json({
+  return res.json({
         status:true,
         message:'Request Successfully sent'
     })
@@ -25,13 +25,13 @@ router.post('/contact', async (req, res) => {
         const mailResponse = await sendMail(to, subject, text);
 
         if (mailResponse.success) {
-            res.status(200).send('Contact information submitted successfully');
+           return res.status(200).send('Contact information submitted successfully');
         } else {
-            res.status(500).send('Error submitting contact information');
+            return res.status(500).send('Error submitting contact information');
         }
     } catch (error) {
         console.error('Unexpected error:', error.message);
-        res.status(500).send('Internal server error');
+        return res.status(500).send('Internal server error');
     }
 });
 
